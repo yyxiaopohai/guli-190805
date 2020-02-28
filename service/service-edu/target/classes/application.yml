@@ -1,0 +1,28 @@
+server:
+  port: 8110
+spring:
+  profiles:
+    active: dev
+  application:
+    name: guli-edu
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://localhost:3306/db190805_guli_edu?characterEncoding=utf-8&useSSL=false
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      pool-name: GuliHikariPool
+      maximum-pool-size: 12
+      connection-timeout: 60000
+      minimum-idle: 10
+      idle-timeout: 500000
+      max-lifetime: 540000
+      connection-test-query: SELECT 1
+  jackson:
+    date-format: yyyy-MM-dd
+    time-zone: GMT+8
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  mapper-locations: classpath:com/atguigu/guli/service/edu/mapper/xml/*.xml
