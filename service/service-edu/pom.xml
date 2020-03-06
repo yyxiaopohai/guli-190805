@@ -12,6 +12,27 @@
     <artifactId>service-edu</artifactId>
 
 
+    <dependencies>
+        <!--服务注册开始-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <!--服务注册结束-->
+        <!--服务调用开始-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
+        <!--服务调用结束-->
+        <!-- 服务熔断 -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+        </dependency>
+    </dependencies>
+
+
     <build>
         <finalName>service-edu</finalName>
         <plugins>

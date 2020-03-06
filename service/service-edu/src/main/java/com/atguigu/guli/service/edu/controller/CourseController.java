@@ -5,9 +5,8 @@ import com.atguigu.guli.common.base.result.R;
 import com.atguigu.guli.service.edu.entity.Course;
 import com.atguigu.guli.service.edu.entity.Teacher;
 import com.atguigu.guli.service.edu.entity.form.CourseInfoForm;
-import com.atguigu.guli.service.edu.entity.vo.CoursePublishVo;
-import com.atguigu.guli.service.edu.entity.vo.CourseQueryVo;
-import com.atguigu.guli.service.edu.entity.vo.TeacherQueryVO;
+import com.atguigu.guli.service.edu.entity.vo.*;
+import com.atguigu.guli.service.edu.service.ChapterService;
 import com.atguigu.guli.service.edu.service.CourseService;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -36,6 +35,8 @@ public class CourseController {
 
     @Autowired
     private CourseService courseService;
+    @Autowired
+    private ChapterService chapterService;
 
     @ApiOperation(value = "新增课程")
     @PostMapping("save-course-info")
@@ -117,6 +118,8 @@ public class CourseController {
         courseService.publishCourseById(id);
         return R.ok();
     }
+
+
 
 }
 

@@ -40,7 +40,7 @@ public class Swagger2Config {
                 .groupName("webApi")
                 .apiInfo(webApiInfo())
                 .select()
-                .paths(Predicates.and(PathSelectors.regex("/admin/.*")))
+                .paths(Predicates.and(PathSelectors.regex("/api/.*")))
                 .build();
     }
 
