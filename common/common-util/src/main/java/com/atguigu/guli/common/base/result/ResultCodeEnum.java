@@ -40,6 +40,8 @@ public enum ResultCodeEnum {
     PAY_RUN(false, 25000, "支付中"),
     PAY_UNIFIEDORDER_ERROR(false, 25001, "统一下单错误"),
     PAY_ORDERQUERY_ERROR(false, 25002, "查询支付结果错误"),
+    ORDER_EXIST_ERROR(false, 25003, "订单已存在"),
+
 
     GATEWAY_ERROR(false, 26000, "服务不能访问"),
 

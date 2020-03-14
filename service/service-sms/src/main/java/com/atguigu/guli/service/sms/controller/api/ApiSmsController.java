@@ -36,7 +36,7 @@ public class ApiSmsController {
 
         //发送短信
         //TODO  待测试
-        //smsService.send(phone,param);
+        smsService.send(phone,param);
 
         redisTemplate.opsForValue().set(phone,code,5, TimeUnit.MINUTES);
 

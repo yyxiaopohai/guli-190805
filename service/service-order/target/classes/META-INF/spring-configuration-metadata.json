@@ -1,0 +1,32 @@
+{
+  "hints": [],
+  "groups": [
+    {
+      "sourceType": "com.atguigu.guli.service.order.util.WeixinPayProperties",
+      "name": "weixin.pay",
+      "type": "com.atguigu.guli.service.order.util.WeixinPayProperties"
+    }
+  ],
+  "properties": [
+    {
+      "sourceType": "com.atguigu.guli.service.order.util.WeixinPayProperties",
+      "name": "weixin.pay.appid",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.atguigu.guli.service.order.util.WeixinPayProperties",
+      "name": "weixin.pay.notifyurl",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.atguigu.guli.service.order.util.WeixinPayProperties",
+      "name": "weixin.pay.partner",
+      "type": "java.lang.String"
+    },
+    {
+      "sourceType": "com.atguigu.guli.service.order.util.WeixinPayProperties",
+      "name": "weixin.pay.partnerkey",
+      "type": "java.lang.String"
+    }
+  ]
+}

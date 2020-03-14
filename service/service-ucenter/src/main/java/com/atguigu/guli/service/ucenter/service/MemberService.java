@@ -1,5 +1,6 @@
 package com.atguigu.guli.service.ucenter.service;
 
+import com.atguigu.guli.service.base.dto.MemberDto;
 import com.atguigu.guli.service.ucenter.entity.Member;
 import com.atguigu.guli.service.ucenter.entity.vo.LoginInfoVo;
 import com.atguigu.guli.service.ucenter.entity.vo.LoginVo;
@@ -23,4 +24,8 @@ public interface MemberService extends IService<Member> {
     String login(LoginVo loginVo);
 
     LoginInfoVo getLoginInfoByJwtToken(String token);
+
+    Member getByOpenid(String openid);
+
+    MemberDto getMemberDtoByMemberId(String memberId);
 }

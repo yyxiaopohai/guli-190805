@@ -25,7 +25,7 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  mapper-locations: classpath:com/atguigu/guli/service/statistics/mapper/xml/*.xml
+  mapper-locations: classpath:com/atguigu/guli/service/edu/mapper/xml/*.xml
 #连接的注册中心
 eureka:
   client:

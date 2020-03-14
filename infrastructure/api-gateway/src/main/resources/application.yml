@@ -1,0 +1,58 @@
+server:
+  port: 9120 # 服务端口
+
+spring:
+  profiles:
+    active: dev # 环境设置
+  application:
+    name: guli-gateway # 服务名
+#spring:
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true #gateway开启服务注册和发现的功能
+      routes:
+      - id: GULI-EDU
+        uri: lb://GULI-EDU
+        predicates: #根据路径断言到某一个path
+        - Path=/*/edu/** # 路径匹配
+      - id: GULI-SMS
+        uri: lb://GULI-SMS
+        predicates:
+        - Path=/*/sms/** # 路径匹配
+      - id: GULI-ORDER
+        uri: lb://GULI-ORDER
+        predicates:
+        - Path=/*/order/** # 路径匹配
+      - id: GULI-OSS
+        uri: lb://GULI-OSS
+        predicates:
+        - Path=/*/oss/** # 路径匹配
+      - id: GULI-STATISTICS
+        uri: lb://GULI-STATISTICS
+        predicates:
+        - Path=/*/statistics/** # 路径匹配
+      - id: GULI-UCENTER
+        uri: lb://GULI-UCENTER
+        predicates:
+        - Path=/*/ucenter/** # 路径匹配
+      - id: GULI-VOD
+        uri: lb://GULI-VOD
+        predicates:
+        - Path=/*/vod/** # 路径匹配
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:9110/eureka/
+  instance:
+    prefer-ip-address: true
+    # 心跳检测检测与续约时间
+    # 测试时将值设置设置小些，保证服务关闭后注册中心能及时踢出服务
+    # 配置说明
+    # lease-renewal-interval-in-seconds 每间隔5s，向服务端发送一次心跳，证明自己依然”存活“，默认 30
+    lease-renewal-interval-in-seconds: 5
+    # lease-expiration-duration-in-seconds  告诉服务端，如果我10s之内没有给你发心跳，就代表我“死”了，将我踢出掉，默认 90
+    lease-expiration-duration-in-seconds: 10

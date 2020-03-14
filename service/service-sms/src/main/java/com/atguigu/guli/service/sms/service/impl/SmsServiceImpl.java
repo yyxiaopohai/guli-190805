@@ -47,17 +47,17 @@ public class SmsServiceImpl implements SmsService {
         request.setSysMethod(MethodType.POST);
         request.setSysDomain("dysmsapi.aliyuncs.com");
         request.setSysVersion("2017-05-25");
-        request.setSysAction("SendBatchSms");
+        request.setSysAction("SendSms");
         request.putQueryParameter("RegionId", smsProperties.getRegionid());
-        request.putQueryParameter("PhoneNumberJson", phone);
-        request.putQueryParameter("SignNameJson", smsProperties.getSignname());
+        request.putQueryParameter("PhoneNumbers", phone);
+        request.putQueryParameter("SignName", smsProperties.getSignname());
         request.putQueryParameter("TemplateCode", smsProperties.getTemplatecode());
 //        String s = JSON.toJSONString(param);
         Gson gson = new Gson();
-        request.putQueryParameter("TemplateParamJson", gson.toJson(param));
+        request.putQueryParameter("TemplateParam", gson.toJson(param));
         try {
             CommonResponse response = client.getCommonResponse(request);
-//            System.out.println(response.getData());
+            System.out.println(response.getData());
             String data = response.getData();
             HashMap<String,String> map = gson.fromJson(data, HashMap.class);
             String code = map.get("Code");

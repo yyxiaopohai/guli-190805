@@ -1,5 +1,6 @@
 package com.atguigu.guli.service.edu.service.impl;
 
+import com.atguigu.guli.service.base.dto.CourseDto;
 import com.atguigu.guli.service.edu.client.OssClient;
 import com.atguigu.guli.service.edu.client.VodClient;
 import com.atguigu.guli.service.edu.entity.*;
@@ -47,6 +48,8 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
     private CourseCollectMapper courseCollectMapper;
     @Autowired
     private VideoMapper videoMapper;
+    @Autowired
+    private TeacherMapper teacherMapper;
     @Autowired
     private OssClient ossClient;
     @Autowired
@@ -251,6 +254,7 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         return map;
     }
 
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public WebCourseVo selectWebCourseVoById(String courseId) {
         //更新课程浏览数
@@ -259,5 +263,17 @@ public class CourseServiceImpl extends ServiceImpl<CourseMapper, Course> impleme
         baseMapper.updateById(course);
         //获取课程信息
         return baseMapper.selectWebCourseVoById(courseId);
+    }
+
+    @Override
+    public CourseDto getCourseDtoById(String courseId) {
+
+        Course course = baseMapper.selectById(courseId);
+        CourseDto courseDto = new CourseDto();
+        BeanUtils.copyProperties(course,courseDto);
+
+        Teacher teacher = teacherMapper.selectById(course.getTeacherId());
+        courseDto.setTeacherName(teacher.getName());
+        return courseDto;
     }
 }
